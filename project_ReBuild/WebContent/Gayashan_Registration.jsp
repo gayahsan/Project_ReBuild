@@ -16,7 +16,7 @@
      <td><input type="text" name="pName" /></td>
     </tr>
     <tr>
-     <td>Phone NO</td>
+     <td>Address</td>
      <td><input type="text" name="pPhone" /></td>
     </tr>
     <tr>

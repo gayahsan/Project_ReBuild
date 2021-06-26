@@ -8,6 +8,8 @@ public class GayaCustomer {
     private String username;
     private String password;
     
+    
+    
     public String getpName() {
 		return pName;
 	}

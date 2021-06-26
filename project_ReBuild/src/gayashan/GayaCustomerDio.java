@@ -8,24 +8,24 @@ import java.sql.SQLException;
 public class GayaCustomerDio {
 	public int registerCustomer(GayaCustomer Customer) throws ClassNotFoundException {
         String INSERT_USERS_SQL = "INSERT INTO profiles" +
-            "  (id, name, phone, email, username, password) VALUES " +
-            " (?, ?, ?, ?, ?,?);";
+            "  (name, phone, email, username, password) VALUES " +
+            " (?, ?, ?, ?, ?);";
 
         int result = 0;
 
         Class.forName("com.mysql.jdbc.Driver");
 
         try (Connection connection = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/mysql_database?useSSL=false", "root", "root");
+            .getConnection("jdbc:mysql://localhost:3306/rebuild", "root", "root");
 
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
-            preparedStatement.setInt(1, 1);
-            preparedStatement.setString(2, Customer.getpName());
-            preparedStatement.setString(3, Customer.getpPhone());
-            preparedStatement.setString(4, Customer.getEmail());
-            preparedStatement.setString(5, Customer.getUsername());
-            preparedStatement.setString(6, Customer.getPassword());
+            
+            preparedStatement.setString(1, Customer.getpName());
+            preparedStatement.setString(2, Customer.getpPhone());
+            preparedStatement.setString(3, Customer.getEmail());
+            preparedStatement.setString(4, Customer.getUsername());
+            preparedStatement.setString(5, Customer.getPassword());
             
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
