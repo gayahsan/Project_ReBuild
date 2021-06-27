@@ -9,9 +9,9 @@
 <body>
 <h1>Hello This is our Home</h1>
 
-<table style="width:100%">
+<table style="width:">
   <tr>
-    <td><button type="button">1 Profile Manager</button></td>
+    <td><button type="button">1 Profiles </button></td>
     <td><button type="button">2 NotePada</button></td>
     
   </tr>
