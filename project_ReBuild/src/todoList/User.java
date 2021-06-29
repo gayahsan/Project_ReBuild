@@ -1,6 +1,7 @@
-package com.todo.model;
+package todoList;
 
 public class User {
+	
 	private String firstName;
 	private String lastName;
 	private String userName;
@@ -31,7 +32,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
 }
