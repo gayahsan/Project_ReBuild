@@ -22,7 +22,7 @@ public class UserController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.sendRedirect("register/register.jsp");
+        response.sendRedirect("todoRegister.jsp");
 	}
 
 
@@ -54,7 +54,7 @@ public class UserController extends HttpServlet {
             e.printStackTrace();
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("register/register.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("todoRegister.jsp");
         dispatcher.forward(request, response);
     }
 
