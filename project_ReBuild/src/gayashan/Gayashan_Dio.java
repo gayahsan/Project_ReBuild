@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import org.apache.catalina.User;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Gayashan_Dio {
 
@@ -40,8 +40,7 @@ public class Gayashan_Dio {
 		}
 		return connection;
 	}
-	
-	
+		
 	public void insertUser(Gayasahan_User gayasahan_User) throws SQLException {
 		System.out.println(INSERT_USERS_SQL);
 		// try-with-resource statement will auto close the connection.
@@ -108,5 +107,47 @@ public class Gayashan_Dio {
 		return gayasahan_User;
 	}
 	
+	
+	public List<Gayasahan_User> selectAllGayasahan_User() {
+
+		// using try-with-resources to avoid closing resources (boiler plate code)
+		List<Gayasahan_User> gayasahan_User = new ArrayList<>();
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+
+			// Step 2:Create a statement using connection object
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS);) {
+			System.out.println(preparedStatement);
+			
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			System.out.println(rs);
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				int phone = rs.getInt("phone");
+				String address = rs.getString("address");
+				String description = rs.getString("description");
+				gayasahan_User.add(new Gayasahan_User(id, name, email, phone, address, description));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return gayasahan_User;
+	}
+	
+	
+	public boolean deleteUser(int id) throws SQLException {
+		boolean rowDeleted;
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL);) {
+			statement.setInt(1, id);
+			rowDeleted = statement.executeUpdate() > 0;
+		}
+		return rowDeleted;
+	}
 	
 }
