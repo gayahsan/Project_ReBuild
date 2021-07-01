@@ -39,7 +39,7 @@
 				<p>${NOTIFICATION}</p>
 			</div>
 			
-				<form action="<%=request.getContextPath()%>/register" method="post">
+				<form action="<%=request.getContextPath()%>/UserController" method="post">
 
 					<div class="form-group">
 						<label for="uname">First Name:</label> <input type="text"
