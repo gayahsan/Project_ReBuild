@@ -82,6 +82,10 @@ public class Todo {
 		this.status = status;
 	}
 	
+	public boolean getStatus() {
+		return status;
+	}
+	
 	
 	public int hashCode() {
 		final int prime = 31;
