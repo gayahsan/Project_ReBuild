@@ -58,7 +58,7 @@ public class TodoDaoImpl implements TodoDao {
 
 			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
-				long id = rs.getLong("id");
+				int id = rs.getInt("id");
 				String title = rs.getString("title");
 				String username = rs.getString("username");
 				String description = rs.getString("description");
@@ -92,7 +92,7 @@ public class TodoDaoImpl implements TodoDao {
 
 			// Step 4: Process the ResultSet object.
 			while (rs.next()) {
-				long id = rs.getLong("id");
+				int id = rs.getInt("id");
 				String title = rs.getString("title");
 				String username = rs.getString("username");
 				String description = rs.getString("description");
@@ -120,7 +120,6 @@ public class TodoDaoImpl implements TodoDao {
 		return rowDeleted;
 	}
 
-	@Override
 	public boolean updateTodo(Todo todo) throws SQLException {
 		boolean rowUpdated;
 		try (Connection connection = (Connection) JDBCUtils.getConnection();
@@ -130,7 +129,7 @@ public class TodoDaoImpl implements TodoDao {
 			statement.setString(3, todo.getDescription());
 			statement.setDate(4, JDBCUtils.getSQLDate(todo.getTargetDate()));
 			statement.setBoolean(5, todo.getStatus());
-			statement.setLong(6, todo.getId());
+			statement.setInt(6, todo.getId());
 			rowUpdated = statement.executeUpdate() > 0;
 		}
 		return rowUpdated;
