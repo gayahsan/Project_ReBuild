@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Todo {
 	
-	private Long id;
+	private int id;
 	private String title;
 	private String userName;
 	private String description;
@@ -15,7 +15,7 @@ public class Todo {
 		
 	}
 
-	public Todo(Long id, String title, String userName, String description, LocalDate targetDate, boolean status) {
+	public Todo(int id, String title, String userName, String description, LocalDate targetDate, boolean status) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -34,11 +34,11 @@ public class Todo {
 		this.status = status;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
